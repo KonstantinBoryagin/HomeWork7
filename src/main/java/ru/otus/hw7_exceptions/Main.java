@@ -10,9 +10,10 @@ import java.util.logging.Logger;
 public class Main {
 
     private static Logger log;
+    // ????
     static {
-        try (FileInputStream ins = new FileInputStream("/home/nokss/Logger/log.config")) {
-            LogManager.getLogManager().readConfiguration(ins);
+        try (FileInputStream config = new FileInputStream("/home/nokss/Logger/log.config")) {
+            LogManager.getLogManager().readConfiguration(config);
             log = Logger.getLogger(Main.class.getName());
         } catch (Exception ignore) {
             System.out.println("WARNING: Could not open configuration file");
@@ -21,19 +22,20 @@ public class Main {
     }
 
     public static void someMethod() {
-        log.log(Level.INFO, "Start someMethod");
+        log.log(Level.WARNING, "Start someMethod");
         System.out.println("-----");
-        log.log(Level.INFO, "Stop someMethod");
+        log.log(Level.SEVERE, "Stop someMethod");
     }
 
     public static void main(String[] args) {
         Main.someMethod();
+        log.log(Level.FINE, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         try {
             throw new FactorialException("ASSSSAAA", 10);
         } catch (FactorialException e) {
-            log.log(Level.SEVERE,"Exception: ", e);
-            log.info("WE HAVE EXCEPTION HERE");
+            log.log(Level.WARNING,"Exception: ", e);
+            System.out.println("Exception write in log");
         }
 
 
