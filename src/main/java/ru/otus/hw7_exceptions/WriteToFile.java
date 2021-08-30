@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Класс записывает полученное число в файл
+ * Класс записывает полученное число в файл, или не записывает, как повезет. Великий китайский рандом ;)
  */
 public class WriteToFile {
 
@@ -31,7 +31,7 @@ public class WriteToFile {
                 e.printStackTrace();
             }
         } else {
-            //System.out.println("File not written!");
+            System.out.println("File not written!");
             throw new FileNotFoundException("File not found");
         }
     }

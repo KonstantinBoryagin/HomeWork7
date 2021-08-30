@@ -11,18 +11,14 @@ import java.text.NumberFormat;
 public class KeyboardInput {
 
     /**
+     * Метод считывает и возвращает введенные пользователем данные
      * @return - введенное число или '-1'(если было введено не число)
      */
     public static int getInput() {
         try (BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
-            int inputNumber = Integer.parseInt(input.readLine());
-            if (inputNumber == (int) inputNumber) {
-                return inputNumber;
-            } else {
-                return -1;
-            }
+            return Integer.parseInt(input.readLine());
         } catch (IOException | NumberFormatException e) {
-            System.out.println("Method return '-1', because - " + e.toString());
+           System.out.println("Exception - " + e);
         }
         return -1;
     }

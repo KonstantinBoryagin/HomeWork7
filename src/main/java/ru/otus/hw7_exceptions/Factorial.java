@@ -6,7 +6,7 @@ package ru.otus.hw7_exceptions;
 public class Factorial {
 
     /**
-     * Метод получает число и вызывает {@link #getFactorial(int)} для вычисления факториала
+     * Метод получает число и вызывает {@link #calculateFactorial(int)} для вычисления факториала
      * @param number - число для которого нужно вычислить факториал
      * @return - факториал числа
      * @throws Exception - оборачивает {@link FactorialException#FactorialException(String, int)}

@@ -47,10 +47,4 @@ class KeyboardInputTest {
         assertNotEquals(result, KeyboardInput.getInput());
     }
 
-    @Test
-    @DisplayName("Test for not NULL")
-    void getInputTestNotNull() {
-        int result = 3;
-        assertNotNull(KeyboardInput.getInput());
-    }
 }
