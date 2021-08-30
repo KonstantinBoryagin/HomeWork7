@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 public class KeyboardInput {
 
     /**
-     * @return - введенное число или '-1' (если было получено не число)
+     * @return - введенное число или исключение (если было введено не число)
      */
     public static int getInput() {
         try (BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
@@ -19,7 +19,7 @@ public class KeyboardInput {
                 return inputNumber;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return -1;
     }

@@ -1,38 +1,62 @@
 package ru.otus.hw7_exceptions;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class KeyboardInputTest {
 
-    @Test
-    void getInputTestEquals() {
-        ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes(StandardCharsets.UTF_8));
+    private ByteArrayInputStream in;
+
+    @BeforeEach
+    public void init() {
+        in = new ByteArrayInputStream("3".getBytes(StandardCharsets.UTF_8));
         System.setIn(in);
-        int result = 3;
-        assertEquals(result, KeyboardInput.getInput());
+    }
+
+    @AfterEach
+    public void returnDefault() {
         System.setIn(System.in);
     }
 
     @Test
+    @DisplayName("Test assert number")
+    void getInputTestEquals() {
+        int result = 3;
+        assertEquals(result, KeyboardInput.getInput());
+    }
+
+//    @Test
+//    @DisplayName("Test assert number")
+//    void getInputTestEqualsNotNumber() throws IOException {
+////        ByteArrayInputStream in = new ByteArrayInputStream("AbCd".getBytes(StandardCharsets.UTF_8));
+////        System.setIn(in);
+//        assertThrows(IOException.class,
+//                ()->{
+//                    ByteArrayInputStream in = new ByteArrayInputStream("AbCd".getBytes(StandardCharsets.UTF_8));
+//                    System.setIn(in);
+//                });
+//
+//        System.setIn(System.in);
+//    }
+
+    @Test
     void getInputTestNotEquals() {
-        ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes(StandardCharsets.UTF_8));
-        System.setIn(in);
         int result = 100;
         assertNotEquals(result, KeyboardInput.getInput());
-        System.setIn(System.in);
     }
 
     @Test
     void getInputTestNotNull() {
-        ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes(StandardCharsets.UTF_8));
-        System.setIn(in);
         int result = 3;
         assertNotNull(KeyboardInput.getInput());
-        System.setIn(System.in);
     }
 }
