@@ -4,10 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -49,12 +46,14 @@ class KeyboardInputTest {
 //    }
 
     @Test
+    @DisplayName("Test assert various numbers")
     void getInputTestNotEquals() {
         int result = 100;
         assertNotEquals(result, KeyboardInput.getInput());
     }
 
     @Test
+    @DisplayName("Test not NULL")
     void getInputTestNotNull() {
         int result = 3;
         assertNotNull(KeyboardInput.getInput());
