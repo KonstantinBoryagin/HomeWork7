@@ -44,6 +44,7 @@ public class Main {
 
         /** Получает число из консоли */
         int inputNumber = KeyboardInput.getInput();
+        System.out.println(inputNumber);
 
         /** Вычисляет факториал для полученного числа и записывает в файл */
         try {

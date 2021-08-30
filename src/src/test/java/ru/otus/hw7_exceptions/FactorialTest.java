@@ -21,7 +21,7 @@ class FactorialTest {
     void getFactorialException() {
         assertThrows(Exception.class,
                 () -> {
-                    factorial.getFactorial(0);
+                    factorial.getFactorial(-1);
                 });
     }
 

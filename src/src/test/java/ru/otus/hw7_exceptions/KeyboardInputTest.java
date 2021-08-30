@@ -25,35 +25,30 @@ class KeyboardInputTest {
     }
 
     @Test
-    @DisplayName("Test assert number")
+    @DisplayName("Test for assert number")
     void getInputTestEquals() {
         int result = 3;
         assertEquals(result, KeyboardInput.getInput());
     }
 
-//    @Test
-//    @DisplayName("Test assert number")
-//    void getInputTestEqualsNotNumber() throws IOException {
-////        ByteArrayInputStream in = new ByteArrayInputStream("AbCd".getBytes(StandardCharsets.UTF_8));
-////        System.setIn(in);
-//        assertThrows(IOException.class,
-//                ()->{
-//                    ByteArrayInputStream in = new ByteArrayInputStream("AbCd".getBytes(StandardCharsets.UTF_8));
-//                    System.setIn(in);
-//                });
-//
-//        System.setIn(System.in);
-//    }
+    @Test
+    @DisplayName("Test for not number input")
+    void getInputTestNotNumber() {
+        in = new ByteArrayInputStream("AbCd".getBytes(StandardCharsets.UTF_8));
+        System.setIn(in);
+        int result = -1;
+        assertEquals(result, KeyboardInput.getInput());
+    }
 
     @Test
-    @DisplayName("Test assert various numbers")
+    @DisplayName("Test for assert various numbers")
     void getInputTestNotEquals() {
         int result = 100;
         assertNotEquals(result, KeyboardInput.getInput());
     }
 
     @Test
-    @DisplayName("Test not NULL")
+    @DisplayName("Test for not NULL")
     void getInputTestNotNull() {
         int result = 3;
         assertNotNull(KeyboardInput.getInput());
